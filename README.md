@@ -1,16 +1,16 @@
 # WeLiPro Learning Edition
 
-WeLiPro Learning Edition is a Windows release package for the WeLiPro desktop application. This repository keeps the runnable learning edition build in a clean release layout so it can be downloaded, inspected, and archived consistently.
+WeLiPro Learning Edition（微凉 Pro 学习版）是微凉 Pro 桌面应用的 Windows 发布包仓库。本仓库保存的是可直接运行的学习版成品包，用于下载、分发、归档和学习交流。
 
-## Quick Start
+## 快速开始
 
-1. Download or clone this repository.
-2. Keep the full directory structure intact.
-3. Run `微凉Pro.exe` from the repository root.
+1. 下载或克隆本仓库。
+2. 保持目录结构完整，不要单独移动主程序。
+3. 在仓库根目录运行 `微凉Pro.exe`。
 
-The `_internal` directory contains the runtime files, Python extension modules, OCR engine files, and other bundled dependencies required by the executable. Do not move or delete it when running the application.
+`_internal` 目录中包含程序运行所需的 Python 运行环境、扩展模块、OCR 组件和其他依赖文件。运行时请保留该目录，否则程序可能无法启动或功能不完整。
 
-## Package Layout
+## 目录结构
 
 ```text
 WeLiPro/
@@ -23,25 +23,39 @@ WeLiPro/
 └── .gitignore
 ```
 
-## System Requirements
+## 运行环境
 
-- Windows 10 or later, 64-bit
-- Sufficient disk space for the bundled runtime
-- Permission to run local desktop applications
+- Windows 10 或更高版本
+- 64 位系统
+- 足够的磁盘空间用于保存完整运行包
+- 允许运行本地桌面程序的系统权限
 
-## Notes
+## 仓库说明
 
-- This is a release package, not a source-code project.
-- Large binaries are tracked with Git LFS to keep the repository usable.
-- Debug captures, temporary patch files, Python bytecode caches, and local logs are intentionally excluded from the release tree.
-- If Windows SmartScreen or antivirus software asks for confirmation, review the file source and choose whether to continue according to your own security policy.
+- 本仓库是发布包仓库，不是源码仓库。
+- 大型二进制文件已通过 Git LFS 管理，克隆时请确保本机已安装并启用 Git LFS。
+- 调试截图、临时补丁文件、Python 字节码缓存、本地日志等过程文件已从发布包中清理。
+- 如果 Windows SmartScreen 或杀毒软件弹出提示，请根据文件来源和自身安全策略自行判断是否继续运行。
 
-## Maintenance
+## Git LFS
 
-When preparing a new release:
+首次克隆后，如发现部分二进制文件是 LFS 指针文件，可以执行：
 
-1. Replace the executable and bundled runtime files.
-2. Remove local debug folders, cache folders, temporary logs, and backup files.
-3. Confirm Git LFS is enabled before committing large binaries.
-4. Update this README if the package layout or usage changes.
+```bash
+git lfs install
+git lfs pull
+```
 
+## 维护流程
+
+准备新版本发布包时，建议按以下流程处理：
+
+1. 替换新的主程序和 `_internal` 运行文件。
+2. 删除调试目录、缓存目录、临时日志、备份文件和补丁过程文件。
+3. 确认 `.gitattributes` 中的大文件规则仍然有效。
+4. 提交前检查 `git lfs ls-files`，确认大型二进制文件已进入 Git LFS。
+5. 如果目录结构或运行方式发生变化，同步更新本文档。
+
+## 免责声明
+
+本项目仅用于学习、研究和交流。请在遵守相关法律法规及软件授权约定的前提下使用。
