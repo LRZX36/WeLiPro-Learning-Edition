@@ -1,0 +1,23 @@
+# Runtime/process artifacts
+ocr_debug/
+flight_debug/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.old
+*.backup
+
+# Local OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
